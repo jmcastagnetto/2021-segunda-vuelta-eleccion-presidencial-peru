@@ -1,3 +1,8 @@
+
+# Created by https://www.toptal.com/developers/gitignore/api/R
+# Edit at https://www.toptal.com/developers/gitignore?templates=R
+
+### R ###
 # History files
 .Rhistory
 .Rapp.history
@@ -37,3 +42,10 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+### R.Bookdown Stack ###
+# R package: bookdown caching files
+/*_files/
+
+# End of https://www.toptal.com/developers/gitignore/api/R
+---
