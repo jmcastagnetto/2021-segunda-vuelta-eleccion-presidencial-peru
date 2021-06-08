@@ -43,7 +43,7 @@ p1 <- ggplot(
     x = "Hora de actualización",
     title = "Total de votos por partido"
   ) +
-  theme_bw(18) +
+  theme_bw(12) +
   theme(
     legend.position = "right"
   ) +
@@ -70,7 +70,7 @@ p2 <- ggplot(
     x = "Hora de actualización",
     title = "Porcentajes por partido"
   ) +
-  theme_bw(18) +
+  theme_bw(12) +
   theme(
     legend.position = "none"
   ) +
@@ -121,7 +121,6 @@ pcomb <- gridExtra::arrangeGrob(
   top = textGrob("Perú: Elecciones Presidenciales 2021, Segunda vuelta",
                  gp = gpar(fontsize = 32, fontface = "bold")),
   bottom = textGrob(glue::glue("@jmcastagnetto, Jesus M. Castagnetto // Gráfico actualizado {lubridate::now(tzone = 'America/Lima')} (PET) // Fuente: ONPE"),
-                    just = c("left", "center"),
                     gp = gpar(fontsize = 14, fontfamily = "Inconsolata"))
 )
 
