@@ -14,7 +14,7 @@ df <- readRDS("datos/actas/actas_electorales.rds") %>%
       obs == "CONTABILIZADAS NORMALES" ~ "Normal",
       obs == "ACTA ELECTORAL PENDIENTE" ~ "Pendiente",
       obs == "EN PROCESO DE DIGITACION" ~ "Pendiente",
-      TRUE ~ "Observada"
+      TRUE ~ "Observada,\nImpugnada"
     )
   )
 
@@ -33,7 +33,7 @@ df1 <- df %>%
 
 p1 <- ggplot(df1, aes(y = grp, x = tot, fill = grp)) +
   geom_col(show.legend = FALSE, width = .5) +
-  geom_text(aes(label = pct_lbl), size = 7,
+  geom_text(aes(label = pct_lbl), size = 6,
             hjust = 0, nudge_x = 300) +
   annotate(
     geom = "text",
@@ -46,7 +46,7 @@ p1 <- ggplot(df1, aes(y = grp, x = tot, fill = grp)) +
   ) +
   scale_fill_manual(values = c(
     "Pendiente" = "#FDE725FF",
-    "Observada" = "#21908CFF",
+    "Observada,\nImpugnada" = "#21908CFF",
     "Normal" = "#440154FF"
   )) +
   scale_x_continuous(limits = c(0, 9e4)) +
@@ -60,6 +60,7 @@ p1 <- ggplot(df1, aes(y = grp, x = tot, fill = grp)) +
   ) +
   theme_minimal(16) +
   theme(
+	plot.margin = unit(rep(.5, 4), "cm"),
     plot.title.position = "plot",
     plot.title = element_text(size = 28),
     plot.subtitle = element_text(color = "gray40"),
@@ -70,13 +71,13 @@ p1 <- ggplot(df1, aes(y = grp, x = tot, fill = grp)) +
   )
 
 
-p2 <- ggplot(df %>% filter(grp == "Observada"),
+p2 <- ggplot(df %>% filter(grp == "Observada,\nImpugnada"),
        aes(y = obs, x = n, fill = grp)) +
   geom_col(show.legend = FALSE) +
   geom_text(aes(label = pct_lbl), hjust = 0, nudge_x = 5, size = 3) +
   scale_fill_manual(values = c(
     "Pendiente" = "#FDE725FF",
-    "Observada" = "#21908CFF",
+    "Observada,\nImpugnada" = "#21908CFF",
     "Normal" = "#440154FF"
   )) +
   scale_x_continuous(limits = c(0, 550)) +

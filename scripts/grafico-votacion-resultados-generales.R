@@ -91,7 +91,7 @@ p3 <- ggplot(
 ) +
   geom_col(fill = "gray70") +
   geom_text(aes(label = sprintf("%.2f%%", avance)),
-            hjust = 0, nudge_y = .5, angle = 90, size = 4) +
+            hjust = 0, nudge_y = .5, angle = 90, size = 3) +
   scale_y_continuous(limits = c(0, 110)) +
   labs(
     y = "Porcentaje de avance",
